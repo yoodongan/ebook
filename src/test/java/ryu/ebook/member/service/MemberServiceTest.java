@@ -28,7 +28,7 @@ class MemberServiceTest {
         String email = "userA519@naver.com";
         memberService.join(username, password, email, null);
 
-        Member findMember = memberService.findByUsername("userA");
+        Member findMember = memberService.findByUsername("userA").get();
         Assertions.assertThat(findMember.getUsername()).isEqualTo("userA");
         Assertions.assertThat(passwordEncoder.matches(password, findMember.getPassword())).isTrue();
 
